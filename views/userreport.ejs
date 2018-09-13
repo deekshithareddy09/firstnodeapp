@@ -1,0 +1,43 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+    </head>
+    <body>
+        <div class="reportcontainer">
+        <div class="usercontainer">
+            <div class="tablecontainer">
+            <div class="panel1">
+                <h2 class="user">User report</h2>
+            </div>
+            <table class="userreport">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Student ID</th> 
+                        <th>Department</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="userbody">
+                    <% students.forEach(function(student){ %>
+                        <tr>
+                            <td><%= student.Name %></td>
+                            <td><%= student.StudentId %></td>
+                            <td><%= student.Department %></td>
+                            <input type="text" name="StudentId[]" value="<%= student.StudentId %>" hidden/>
+                            <td> <a class="btn btn-primary" href="http://127.0.0.1:3000/deleteUser/<%= student.StudentId %>">Delete</a></td> 
+                        </tr>
+                        
+                    <%  }); %>
+                    </tbody>
+                </table>          
+            </div>
+        </div>
+        </div>
+    </body>
+</html>
